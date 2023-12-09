@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl">
+    <Prefix name="" IRI="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Climber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cycling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Director"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Doctor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FlatStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IndividualTimeTrial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MountainStage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OneDayRace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Race"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RaceCyclist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RacePerson"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Rider"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SeveralStagesRace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spectactor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sprinter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stages"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Team"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamPerson"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeamTimeTrial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TimeTrial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#composedOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMember"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#participates"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nationality"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Climber"/>
+        <Class IRI="#RaceCyclist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <Class IRI="#TeamPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Doctor"/>
+        <Class IRI="#TeamPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FlatStage"/>
+        <Class IRI="#Stages"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IndividualTimeTrial"/>
+        <Class IRI="#TimeTrial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MountainStage"/>
+        <Class IRI="#Stages"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OneDayRace"/>
+        <Class IRI="#Race"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#Cycling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Race"/>
+        <Class IRI="#Cycling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RaceCyclist"/>
+        <Class IRI="#TeamPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RacePerson"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rider"/>
+        <Class IRI="#RaceCyclist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SeveralStagesRace"/>
+        <Class IRI="#Race"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spectactor"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sprinter"/>
+        <Class IRI="#RaceCyclist"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stages"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Team"/>
+        <Class IRI="#Cycling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamPerson"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeamTimeTrial"/>
+        <Class IRI="#TimeTrial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TimeTrial"/>
+        <Class IRI="#Stages"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#FlatStage"/>
+        <Class IRI="#MountainStage"/>
+        <Class IRI="#TimeTrial"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#OneDayRace"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </DisjointClasses>
+    <DisjointUnion>
+        <Class IRI="#Race"/>
+        <Class IRI="#OneDayRace"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </DisjointUnion>
+    <DisjointUnion>
+        <Class IRI="#TeamPerson"/>
+        <Class IRI="#RacePerson"/>
+        <Class IRI="#Spectactor"/>
+        <Class IRI="#TeamPerson"/>
+    </DisjointUnion>
+    <DisjointUnion>
+        <Class IRI="#TimeTrial"/>
+        <Class IRI="#IndividualTimeTrial"/>
+        <Class IRI="#TeamTimeTrial"/>
+    </DisjointUnion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#composedOf"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Team"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#participates"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#composedOf"/>
+        <Class IRI="#Stages"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#participates"/>
+        <Class IRI="#Race"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#name"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
