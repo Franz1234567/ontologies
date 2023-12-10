@@ -1,22 +1,25 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl"
+     xml:base="https://github.com/Franz1234567/ontologies/blob/main/barnouin-tran-cycling.owl"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl">
-    <Prefix name="" IRI="https://drive.google.com/drive/my-drive/ontologies/cycling-ontology.owl#"/>
+     ontologyIRI="https://github.com/Franz1234567/ontologies/blob/main/barnouin-tran-cycling.owl">
+    <Prefix name="" IRI="https://github.com/Franz1234567/ontologies/blob/main/barnouin-tran-cycling.owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="ns" IRI="http://www.w3.org/2003/06/sw-vocab-status/ns#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="wot" IRI="http://xmlns.com/wot/0.1/"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="cycling" IRI="https://github.com/Franz1234567/ontologies/blob/main/barnouin-tran-cycling.owl"/>
+    <Import>http://xmlns.com/foaf/0.1/</Import>
     <Declaration>
         <Class IRI="#Climber"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Cycling"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Director"/>
@@ -28,6 +31,9 @@
         <Class IRI="#FlatStage"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#GoodTeam"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#IndividualTimeTrial"/>
     </Declaration>
     <Declaration>
@@ -37,7 +43,13 @@
         <Class IRI="#OneDayRace"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#OurCycling"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Prologue"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Race"/>
@@ -74,6 +86,18 @@
     </Declaration>
     <Declaration>
         <Class IRI="#TimeTrial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#IsFirstStageOfRace"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#IsStageOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#RiderIsA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongsTo"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#composedOf"/>
@@ -93,6 +117,98 @@
     <Declaration>
         <DataProperty IRI="#nationality"/>
     </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Astana"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sky"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tour_de_France"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#US_Postal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Vuelta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/ImageObject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/CreativeWork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/dc/terms/Agent"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+        <Class IRI="#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#GoodTeam"/>
+        <ObjectIntersectionOf>
+            <ObjectMinCardinality cardinality="3">
+                <ObjectProperty IRI="#hasMember"/>
+                <Class IRI="#Climber"/>
+            </ObjectMinCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasMember"/>
+                <Class IRI="#Rider"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Prologue"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#IsStageOf"/>
+                <Class IRI="#SeveralStagesRace"/>
+            </ObjectSomeValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#IsFirstStageOfRace"/>
+                <Class IRI="#Prologue"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Team"/>
+        <ObjectIntersectionOf>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasMember"/>
+                <Class IRI="#Director"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty IRI="#hasMember"/>
+                <Class IRI="#Doctor"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="10">
+                <ObjectProperty IRI="#hasMember"/>
+                <Class IRI="#RaceCyclist"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Climber"/>
         <Class IRI="#RaceCyclist"/>
@@ -110,6 +226,10 @@
         <Class IRI="#Stages"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#GoodTeam"/>
+        <Class IRI="#Team"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#IndividualTimeTrial"/>
         <Class IRI="#TimeTrial"/>
     </SubClassOf>
@@ -123,11 +243,15 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Person"/>
-        <Class IRI="#Cycling"/>
+        <Class IRI="#OurCycling"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Prologue"/>
+        <Class IRI="#SeveralStagesRace"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Race"/>
-        <Class IRI="#Cycling"/>
+        <Class IRI="#OurCycling"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#RaceCyclist"/>
@@ -159,7 +283,11 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Team"/>
-        <Class IRI="#Cycling"/>
+        <Class abbreviatedIRI="foaf:Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Team"/>
+        <Class IRI="#OurCycling"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#TeamPerson"/>
@@ -173,6 +301,11 @@
         <Class IRI="#TimeTrial"/>
         <Class IRI="#Stages"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Climber"/>
+        <Class IRI="#Rider"/>
+        <Class IRI="#Sprinter"/>
+    </DisjointClasses>
     <DisjointClasses>
         <Class IRI="#FlatStage"/>
         <Class IRI="#MountainStage"/>
@@ -198,6 +331,163 @@
         <Class IRI="#IndividualTimeTrial"/>
         <Class IRI="#TeamTimeTrial"/>
     </DisjointUnion>
+    <ClassAssertion>
+        <Class IRI="#Team"/>
+        <NamedIndividual IRI="#Astana"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Climber"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Rider"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SeveralStagesRace"/>
+        <NamedIndividual IRI="#Giro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Climber"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Team"/>
+        <NamedIndividual IRI="#Sky"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SeveralStagesRace"/>
+        <NamedIndividual IRI="#Tour_de_France"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Team"/>
+        <NamedIndividual IRI="#US_Postal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SeveralStagesRace"/>
+        <NamedIndividual IRI="#Vuelta"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:birthday"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>May 20, 1985</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:familyName"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>Froome</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:firstName"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>Christopher</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:gender"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>Male</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:lastName"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>Froome</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#age"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">38</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nationality"/>
+        <NamedIndividual IRI="#Christopher_Froome"/>
+        <Literal>Kenyan</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:age"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">78</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:birthday"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>June 17, 1945</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:familyName"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>Merckx</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:firstName"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>Eddy</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:gender"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>Male</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:lastName"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>Merckx</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nationality"/>
+        <NamedIndividual IRI="#Eddy_Merckx"/>
+        <Literal>Belgian</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:age"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">59</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:birthday"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>July 16, 1964</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:familyName"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>Indurain</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:firstName"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>Miguel</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:gender"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>Male</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="foaf:lastName"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>Indurain</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nationality"/>
+        <NamedIndividual IRI="#Miguel_Indurain"/>
+        <Literal>Spanish</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#belongsTo"/>
+        <ObjectProperty IRI="#hasMember"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#IsFirstStageOfRace"/>
+        <Class IRI="#Stages"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#IsStageOf"/>
+        <Class IRI="#Stages"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#RiderIsA"/>
+        <Class IRI="#RaceCyclist"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#composedOf"/>
         <Class IRI="#SeveralStagesRace"/>
@@ -211,17 +501,94 @@
         <Class IRI="#Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#IsFirstStageOfRace"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#IsStageOf"/>
+        <Class IRI="#SeveralStagesRace"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#RiderIsA"/>
+        <Class IRI="#Climber"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#RiderIsA"/>
+        <Class IRI="#Rider"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#RiderIsA"/>
+        <Class IRI="#Sprinter"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#composedOf"/>
         <Class IRI="#Stages"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Doctor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#RaceCyclist"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#participates"/>
         <Class IRI="#Race"/>
     </ObjectPropertyRange>
+    <EquivalentDataProperties>
+        <DataProperty abbreviatedIRI="foaf:age"/>
+        <DataProperty IRI="#age"/>
+    </EquivalentDataProperties>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="foaf:familyName"/>
+        <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="foaf:family_name"/>
+        <DataProperty abbreviatedIRI="foaf:lastName"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="foaf:firstName"/>
+        <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="foaf:lastName"/>
+        <DataProperty IRI="#name"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#age"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#name"/>
         <Class IRI="#Person"/>
     </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nationality"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#age"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nationality"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#name</IRI>
+        <Literal>Names of a person</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
